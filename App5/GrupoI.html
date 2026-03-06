@@ -8,49 +8,126 @@
     <link rel="stylesheet" href="bootstrap-5.3.8-dist/css/bootstrap.css" />
     <link rel="stylesheet" href="estilos.css" />
     <style>
+        :root {
+            --bg-start: #fff4e6;
+            --bg-end: #fbd6b8;
+            --ink: #2f1c10;
+            --muted: #6d5240;
+            --card: rgba(255, 255, 255, 0.8);
+            --accent: #e67e22;
+            --accent-2: #c0392b;
+            --code-bg: #25160f;
+            --code-fg: #ffe5cf;
+            --ok-bg: #fff8ef;
+            --ok-border: #e67e22;
+        }
+
+        body.tema-funcoes {
+            font-family: "Trebuchet MS", "Gill Sans", sans-serif;
+            color: var(--ink);
+            background: radial-gradient(circle at 10% 10%, #ffe2c5 0, transparent 35%),
+                        radial-gradient(circle at 85% 20%, #ffd3af 0, transparent 30%),
+                        linear-gradient(130deg, var(--bg-start), var(--bg-end));
+            min-height: 100vh;
+        }
+
+        body.tema-funcoes .container {
+            max-width: 1100px;
+        }
+
+        body.tema-funcoes .navbar {
+            border-radius: 14px;
+            background: rgba(255, 255, 255, 0.72) !important;
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.75);
+            box-shadow: 0 10px 24px rgba(99, 58, 22, 0.12);
+        }
+
+        body.tema-funcoes .navbar-brand {
+            font-weight: 700;
+            letter-spacing: 0.04em;
+            color: var(--accent-2);
+        }
+
+        body.tema-funcoes h2,
+        body.tema-funcoes h5 {
+            font-family: "Palatino Linotype", "Book Antiqua", serif;
+        }
+
         .resultado-box {
-            background: #f8f9fa;
-            border: 2px solid #198754;
-            border-radius: 8px;
+            background: var(--ok-bg);
+            border: 2px solid var(--ok-border);
+            border-radius: 12px;
             padding: 12px 20px;
             font-size: 1.3rem;
             font-weight: bold;
-            color: #198754;
+            color: #9a3412;
             min-width: 120px;
             text-align: center;
+            box-shadow: inset 0 0 0 1px rgba(230, 126, 34, 0.15);
         }
+
         .code-block {
-            background: #212529;
-            color: #f8f9fa;
-            border-radius: 8px;
+            background: linear-gradient(145deg, var(--code-bg), #1a100c);
+            color: var(--code-fg);
+            border-radius: 12px;
             padding: 16px;
-            font-family: monospace;
+            font-family: "Lucida Console", Monaco, monospace;
             font-size: 0.9rem;
             white-space: pre;
+            border: 1px solid rgba(255, 229, 207, 0.2);
+            box-shadow: 0 10px 18px rgba(22, 13, 9, 0.25);
         }
+
         .alínea-card {
-            border: 1px solid #dee2e6;
-            border-radius: 10px;
-            padding: 20px;
-            margin-bottom: 20px;
-            box-shadow: 3px 3px 8px rgba(0,0,0,0.1);
+            background: var(--card);
+            border: 1px solid rgba(255, 255, 255, 0.9);
+            border-radius: 16px;
+            padding: 22px;
+            margin-bottom: 22px;
+            box-shadow: 0 14px 28px rgba(85, 47, 18, 0.14);
         }
+
         .badge-alinea {
             font-size: 1.1rem;
-            padding: 6px 14px;
+            padding: 7px 15px;
+            border-radius: 999px;
+            background: linear-gradient(135deg, var(--accent), var(--accent-2)) !important;
         }
+
         .explicacao {
-            background: #e8f5e9;
-            border-left: 4px solid #198754;
+            background: #fff4e8;
+            border-left: 4px solid var(--accent);
             padding: 10px 16px;
-            border-radius: 4px;
+            border-radius: 8px;
             font-size: 0.9rem;
-            color: #333;
+            color: var(--muted);
+        }
+
+        body.tema-funcoes .btn-success {
+            background: linear-gradient(135deg, #f97316, #ea580c);
+            border: 0;
+            border-radius: 999px;
+            font-weight: 700;
+            letter-spacing: 0.02em;
+        }
+
+        body.tema-funcoes .btn-dark {
+            background: linear-gradient(135deg, #3f2b1d, #22150f);
+            border: 0;
+            border-radius: 999px;
+            padding-inline: 2.1rem;
+        }
+
+        @media (max-width: 767px) {
+            .alínea-card {
+                padding: 16px;
+            }
         }
     </style>
 </head>
 
-<body>
+<body class="tema-funcoes">
     <div class="container">
         <div class="row">
             <div class="col-12">

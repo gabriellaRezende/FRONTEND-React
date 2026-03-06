@@ -7,76 +7,151 @@
     <title>Arrays</title>
     <link rel="stylesheet" href="bootstrap-5.3.8-dist/css/bootstrap.css" />
     <link rel="stylesheet" href="estilos.css" />
+    <style>
+        :root {
+            --bg-start: #fff8e7;
+            --bg-end: #ffe8cc;
+            --ink: #2f1f13;
+            --muted: #6e5442;
+            --card: rgba(255, 255, 255, 0.88);
+            --accent: #f59e0b;
+            --accent-2: #d97706;
+            --panel: #fffdf8;
+            --panel-border: #f1d7ac;
+        }
+
+        body.tema-alpha {
+            font-family: "Trebuchet MS", "Gill Sans", sans-serif;
+            color: var(--ink);
+            background: radial-gradient(circle at 12% 15%, #ffe9c7 0, transparent 32%),
+                        radial-gradient(circle at 86% 18%, #ffd7a9 0, transparent 28%),
+                        linear-gradient(140deg, var(--bg-start), var(--bg-end));
+            min-height: 100vh;
+        }
+
+        body.tema-alpha .container {
+            max-width: 1120px;
+        }
+
+        body.tema-alpha .navbar {
+            border-radius: 14px;
+            background: rgba(255, 255, 255, 0.78) !important;
+            border: 1px solid rgba(255, 255, 255, 0.85);
+            box-shadow: 0 12px 24px rgba(105, 66, 28, 0.12);
+            margin-top: 1rem;
+        }
+
+        body.tema-alpha .navbar-brand {
+            font-weight: 700;
+            letter-spacing: 0.04em;
+            color: #b45309;
+        }
+
+        body.tema-alpha .nav-link.active {
+            font-weight: 700;
+            color: #92400e !important;
+        }
+
+        .alpha-card {
+            background: var(--card);
+            border: 1px solid rgba(255, 255, 255, 0.92);
+            border-radius: 18px;
+            padding: 24px;
+            margin-top: 1.25rem;
+            box-shadow: 0 16px 30px rgba(111, 64, 18, 0.14);
+        }
+
+        .alpha-card h2 {
+            font-family: "Palatino Linotype", "Book Antiqua", serif;
+            margin-bottom: 1rem;
+        }
+
+        .alpha-input {
+            border-radius: 10px;
+            border: 1px solid #e7cca5;
+            background: #fffefb;
+        }
+
+        .contentor {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            border: 1px solid var(--panel-border);
+            border-radius: 14px;
+            margin: 14px 0 0 0;
+            padding: 14px;
+            background: var(--panel);
+            box-shadow: inset 0 0 0 1px rgba(245, 158, 11, 0.08);
+        }
+
+        .contentor .btn {
+            border: 0;
+            border-radius: 999px;
+            background: linear-gradient(135deg, var(--accent), var(--accent-2));
+            color: #fff;
+            font-weight: 700;
+            letter-spacing: 0.01em;
+            padding: 0.45rem 1rem;
+        }
+
+        #tv {
+            margin-top: 1rem;
+            border-radius: 12px;
+            border: 1px solid #eacba0;
+            background: #fff8ef;
+            min-height: 120px;
+            padding: 14px;
+            color: var(--muted);
+            box-shadow: inset 0 -3px 0 rgba(217, 119, 6, 0.08);
+        }
+
+        .help-text {
+            color: var(--muted);
+            margin-bottom: 0.5rem;
+        }
+
+        @media (max-width: 767px) {
+            .alpha-card {
+                padding: 16px;
+            }
+        }
+    </style>
 </head>
 
-<body>
+<body class="tema-alpha">
     <div class="container">
         <div class="row">
-            <!--Menu-->
             <div class="col-12">
                 <nav class="navbar navbar-expand-lg bg-body-tertiary">
                     <div class="container-fluid">
-                        <a class="navbar-brand" href="#">Navbar</a>
-                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                            aria-expanded="false" aria-label="Toggle navigation">
-                            <span class="navbar-toggler-icon"></span>
-                        </button>
-                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <a class="navbar-brand" href="#">App5</a>
+                        <div class="collapse navbar-collapse">
                             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                                 <li class="nav-item">
-                                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                                    <a class="nav-link active" aria-current="page" href="Alpha.html">Arrays</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#">Link</a>
-                                </li>
-                                <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                                        aria-expanded="false">
-                                        Dropdown
-                                    </a>
-                                    <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item" href="#">Action</a></li>
-                                        <li><a class="dropdown-item" href="#">Another action</a></li>
-                                        <li>
-                                            <hr class="dropdown-divider">
-                                        </li>
-                                        <li><a class="dropdown-item" href="#">Something else here</a></li>
-                                    </ul>
+                                    <a class="nav-link" href="GrupoI.html">Grupo I – Funções JS</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+                                    <a class="nav-link" href="GrupoII.html">Grupo II – Arrays Teste</a>
                                 </li>
                             </ul>
-                            <form class="d-flex" role="search">
-                                <input class="form-control me-2" type="search" placeholder="Search"
-                                    aria-label="Search" />
-                                <button class="btn btn-outline-success" type="submit">Search</button>
-                            </form>
                         </div>
                     </div>
                 </nav>
             </div>
         </div>
-        <div class="row">
-            <div class="col-xs-12  col-lg-3">
-                <div class="card m-1" style="width: 100%;min-height: 600px;">
-                    <img src="imagens/logo.jpg" class="card-img-top" alt="">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-                            the card’s
-                            content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xs-12 col-lg-9">
-                <div class="cx">
-                    <h2>Formulário</h2>
+
+        <div class="row justify-content-center">
+            <div class="col-12 col-lg-10">
+                <div class="alpha-card">
+                    <h2>Laboratório de Arrays</h2>
+                    <p class="help-text">Digite um valor e use os botões para testar operações de arrays.</p>
                     <div class="form-group">
                         <label>Input:</label>
-                        <input type="text" id="txtinput" class="form-control" />
+                        <input type="text" id="txtinput" class="form-control alpha-input" />
                     </div>
 
                     <div class="contentor">
@@ -90,20 +165,10 @@
                         <button class="btn btn-success" id="btfilter">Filter</button>
                         <button class="btn btn-success" id="btsort">Sort</button>
                     </div>
-
+                    <div id="tv"></div>
                 </div>
-                <hr />
-
-                <div id="tv"></div>
-
             </div>
         </div>
-        <div class="row">
-            <div class="col-12">
-                <hr />
-            </div>
-        </div>
-
     </div>
     <script src="bootstrap-5.3.8-dist/js/bootstrap.js"></script>
     <script src="bootstrap-5.3.8-dist/js/bootstrap.esm.js"></script>
