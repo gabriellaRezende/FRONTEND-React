@@ -1,0 +1,29 @@
+#conteudo{
+   display: block;
+   width: 90%;
+   min-height: 200px;
+   margin: 12px auto;
+   padding: 12px;
+   border: 2px darkgray solid;
+   box-shadow: 5px 5px 12px grey;
+   border-radius: 12px;
+}
+
+.xpto{}
+
+body{
+ margin: 0px;
+ padding: 0px;
+ box-sizing: border-box;
+}
+
+.botoes{
+ display: flex;
+ margin: 12px auto;
+ justify-content: center;
+ gap: 12px;
+ vertical-align: middle;
+ padding: 12px;
+ border: 2px darkgray solid;
+ border-radius: 12px;
+}

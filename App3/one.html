@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>One</h1>
+    <script>
+        window.onload = function () {
+            // MyPromise(Math.floor(Math.random() * 10) + 1).then(n => {
+            //     console.log(`Resolve:${n}`);
+            //     return n ** 2;
+            // }).then(m => { console.log(`Resolve2:${m}`); }).catch(n => {
+            //     console.log(`Reject:${n}`);
+            // });
+            bravo(8);
+
+        };
+
+        function PromiseII(num) {
+            return new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    if (num > 6) resolve(num);
+                    else reject(num);
+                }, 1000);
+            });
+        }
+
+        async function bravo(num) {
+            let n = await PromiseII(num).then(n => n * 2).catch(n => n * (-2));
+            n += 100;
+            console.log(n);
+
+        }
+
+
+        function MyPromise(num) {
+            return new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    if (num % 2 == 0) resolve(num);
+                    else reject(num);
+                }, 500);
+            });
+        }
+    </script>
+</body>
+
+</html>
