@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grupo II – Arrays</title>
+    <link rel="stylesheet" href="bootstrap-5.3.8-dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="estilos.css" />
+    <style>
+        .code-block {
+            background: #212529;
+            color: #f8f9fa;
+            border-radius: 8px;
+            padding: 14px;
+            font-family: monospace;
+            font-size: 0.88rem;
+            white-space: pre;
+        }
+        .alínea-card {
+            border: 1px solid #dee2e6;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 3px 3px 8px rgba(0,0,0,0.1);
+        }
+        .array-display {
+            display: flex;
+            gap: 4px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+        .array-cell {
+            min-width: 44px;
+            height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid #0d6efd;
+            border-radius: 6px;
+            font-weight: bold;
+            font-size: 1rem;
+            background: #e7f1ff;
+            color: #0d6efd;
+            transition: all 0.3s;
+        }
+        .array-cell.changed {
+            background: #d1e7dd;
+            border-color: #198754;
+            color: #198754;
+        }
+        .array-label {
+            font-weight: bold;
+            font-size: 1rem;
+            min-width: 55px;
+        }
+        .array-empty {
+            color: #aaa;
+            font-style: italic;
+            font-size: 0.9rem;
+        }
+        .explicacao {
+            background: #e8f5e9;
+            border-left: 4px solid #198754;
+            padding: 10px 16px;
+            border-radius: 4px;
+            font-size: 0.88rem;
+            color: #333;
+            margin-top: 10px;
+        }
+        .badge-alinea {
+            font-size: 1.1rem;
+            padding: 6px 14px;
+        }
+        .reset-info {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 8px 14px;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            color: #555;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <nav class="navbar navbar-expand-lg bg-body-tertiary">
+                    <div class="container-fluid">
+                        <a class="navbar-brand" href="#">App5</a>
+                        <div class="collapse navbar-collapse">
+                            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="Alpha.html">Arrays</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="GrupoI.html">Grupo I – Funções JS</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link active" aria-current="page" href="GrupoII.html">Grupo II – Arrays Teste</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+
+        <div class="row mt-3">
+            <div class="col-12">
+                <h2 class="mb-1">Grupo II – Arrays</h2>
+                <p class="text-muted">
+                    Valores iniciais para cada alínea: 
+                    <code>Alfa = [13, 3, 11, 34, 18]</code> &nbsp; 
+                    <code>Bravo = []</code>
+                </p>
+                <div class="reset-info">
+                    ⚠️ Cada alínea usa os valores <b>iniciais independentes</b> — as operações não se acumulam entre alíneas.
+                </div>
+                <hr />
+            </div>
+        </div>
+
+        <!-- ALÍNEA A -->
+        <div class="row">
+            <div class="col-12">
+                <div class="alínea-card">
+                    <div class="d-flex align-items-center gap-3 mb-3">
+                        <span class="badge bg-primary badge-alinea">a)</span>
+                        <h5 class="mb-0">filter + map</h5>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="code-block">Bravo = Alfa
+  .filter(x => x > 4)
+  .map(x => x * 2);</div>
+                        </div>
+                        <div class="col-lg-6 mt-3 mt-lg-0">
+                            <button class="btn btn-success mb-3" onclick="executarA()">▶ Executar</button>
+                            <div class="d-flex align-items-center gap-2 mb-2">
+                                <span class="array-label">Alfa:</span>
+                                <div class="array-display" id="alfaA"></div>
+                            </div>
+                            <div class="d-flex align-items-center gap-2">
+                                <span class="array-label">Bravo:</span>
+                                <div class="array-display" id="bravoA"><span class="array-empty">[]</span></div>
+                            </div>
+                            <div class="explicacao" id="expA" style="display:none"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ALÍNEA B -->
+        <div class="row">
+            <div class="col-12">
+                <div class="alínea-card">
+                    <div class="d-flex align-items-center gap-3 mb-3">
+                        <span class="badge bg-primary badge-alinea">b)</span>
+                        <h5 class="mb-0">splice + reduce</h5>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="code-block">Bravo[0] = Alfa.splice(1, 2, 7, 7)
+             .reduce((ac, a) => ac + a);</div>
+                        </div>
+                        <div class="col-lg-6 mt-3 mt-lg-0">
+                            <button class="btn btn-success mb-3" onclick="executarB()">▶ Executar</button>
+                            <div class="d-flex align-items-center gap-2 mb-2">
+                                <span class="array-label">Alfa:</span>
+                                <div class="array-display" id="alfaB"></div>
+                            </div>
+                            <div class="d-flex align-items-center gap-2">
+                                <span class="array-label">Bravo:</span>
+                                <div class="array-display" id="bravoB"><span class="array-empty">[]</span></div>
+                            </div>
+                            <div class="explicacao" id="expB" style="display:none"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ALÍNEA C -->
+        <div class="row">
+            <div class="col-12">
+                <div class="alínea-card">
+                    <div class="d-flex align-items-center gap-3 mb-3">
+                        <span class="badge bg-primary badge-alinea">c)</span>
+                        <h5 class="mb-0">slice + unshift</h5>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="code-block">Bravo.unshift(Alfa.slice(2, 4));</div>
+                        </div>
+                        <div class="col-lg-6 mt-3 mt-lg-0">
+                            <button class="btn btn-success mb-3" onclick="executarC()">▶ Executar</button>
+                            <div class="d-flex align-items-center gap-2 mb-2">
+                                <span class="array-label">Alfa:</span>
+                                <div class="array-display" id="alfaC"></div>
+                            </div>
+                            <div class="d-flex align-items-center gap-2">
+                                <span class="array-label">Bravo:</span>
+                                <div class="array-display" id="bravoC"><span class="array-empty">[]</span></div>
+                            </div>
+                            <div class="explicacao" id="expC" style="display:none"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ALÍNEA D -->
+        <div class="row">
+            <div class="col-12">
+                <div class="alínea-card">
+                    <div class="d-flex align-items-center gap-3 mb-3">
+                        <span class="badge bg-primary badge-alinea">d)</span>
+                        <h5 class="mb-0">map com índice</h5>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="code-block">Bravo = Alfa.map((v, i, a) => {
+    return i + v;
+});</div>
+                        </div>
+                        <div class="col-lg-6 mt-3 mt-lg-0">
+                            <button class="btn btn-success mb-3" onclick="executarD()">▶ Executar</button>
+                            <div class="d-flex align-items-center gap-2 mb-2">
+                                <span class="array-label">Alfa:</span>
+                                <div class="array-display" id="alfaD"></div>
+                            </div>
+                            <div class="d-flex align-items-center gap-2">
+                                <span class="array-label">Bravo:</span>
+                                <div class="array-display" id="bravoD"><span class="array-empty">[]</span></div>
+                            </div>
+                            <div class="explicacao" id="expD" style="display:none"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Executar Todos -->
+        <div class="row mb-4">
+            <div class="col-12 text-center">
+                <button class="btn btn-dark btn-lg" onclick="executarTodos()">▶▶ Executar Todos</button>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="bootstrap-5.3.8-dist/js/bootstrap.bundle.js"></script>
+    <script>
+        const ALFA_INIT = [13, 3, 11, 34, 18];
+
+        function renderArray(containerId, arr, changedIndexes = []) {
+            const el = document.getElementById(containerId);
+            if (!arr || arr.length === 0) {
+                el.innerHTML = '<span class="array-empty">[]</span>';
+                return;
+            }
+            el.innerHTML = arr.map((v, i) => {
+                const cls = changedIndexes.includes(i) ? "array-cell changed" : "array-cell";
+                return `<div class="${cls}">${Array.isArray(v) ? '[' + v.join(',') + ']' : v}</div>`;
+            }).join('');
+        }
+
+        // ---- ALÍNEA A ----
+        function executarA() {
+            let Alfa = [...ALFA_INIT];
+            let Bravo = [];
+
+            Bravo = Alfa.filter(x => x > 4).map(x => x * 2);
+
+            renderArray("alfaA", Alfa);
+            renderArray("bravoA", Bravo, Bravo.map((_, i) => i));
+
+            document.getElementById("expA").style.display = "block";
+            document.getElementById("expA").innerHTML =
+                `<b>Passo a passo:</b><br>
+                filter(x > 4): [13, 11, 34, 18] <i>(3 é removido)</i><br>
+                map(x*2): [26, 22, 68, 36]<br>
+                Alfa não é modificado.`;
+        }
+
+        // ---- ALÍNEA B ----
+        function executarB() {
+            let Alfa = [...ALFA_INIT];
+            let Bravo = [];
+
+            let removidos = Alfa.splice(1, 2, 7, 7);
+            Bravo[0] = removidos.reduce((ac, a) => ac + a);
+
+            renderArray("alfaB", Alfa, [1, 2]);
+            renderArray("bravoB", Bravo, [0]);
+
+            document.getElementById("expB").style.display = "block";
+            document.getElementById("expB").innerHTML =
+                `<b>Passo a passo:</b><br>
+                splice(1,2,7,7): remove índices 1 e 2 → [3, 11], insere 7 e 7<br>
+                Alfa fica: [13, 7, 7, 34, 18]<br>
+                reduce([3,11]): 3 + 11 = 14<br>
+                Bravo[0] = 14`;
+        }
+
+        // ---- ALÍNEA C ----
+        function executarC() {
+            let Alfa = [...ALFA_INIT];
+            let Bravo = [];
+
+            Bravo.unshift(Alfa.slice(2, 4));
+
+            renderArray("alfaC", Alfa);
+            renderArray("bravoC", Bravo, [0]);
+
+            document.getElementById("expC").style.display = "block";
+            document.getElementById("expC").innerHTML =
+                `<b>Passo a passo:</b><br>
+                slice(2,4): extrai [11, 34] <i>(não altera Alfa)</i><br>
+                unshift insere como 1º elemento → Bravo = [[11,34]]<br>
+                <i>Nota: o array [11,34] é inserido como um único elemento.</i>`;
+        }
+
+        // ---- ALÍNEA D ----
+        function executarD() {
+            let Alfa = [...ALFA_INIT];
+            let Bravo = [];
+
+            Bravo = Alfa.map((v, i) => i + v);
+
+            renderArray("alfaD", Alfa);
+            renderArray("bravoD", Bravo, Bravo.map((_, i) => i));
+
+            document.getElementById("expD").style.display = "block";
+            document.getElementById("expD").innerHTML =
+                `<b>Passo a passo (i + v):</b><br>
+                i=0: 0+13=13 | i=1: 1+3=4 | i=2: 2+11=13 | i=3: 3+34=37 | i=4: 4+18=22<br>
+                Bravo = [13, 4, 13, 37, 22]`;
+        }
+
+        function executarTodos() {
+            executarA();
+            executarB();
+            executarC();
+            executarD();
+        }
+
+        // Mostrar Alfa inicial em todos
+        window.onload = () => {
+            ['alfaA','alfaB','alfaC','alfaD'].forEach(id => renderArray(id, [...ALFA_INIT]));
+        };
+    </script>
+</body>
+
+</html>

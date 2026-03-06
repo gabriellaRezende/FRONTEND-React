@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grupo I – Funções JavaScript</title>
+    <link rel="stylesheet" href="bootstrap-5.3.8-dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="estilos.css" />
+    <style>
+        .resultado-box {
+            background: #f8f9fa;
+            border: 2px solid #198754;
+            border-radius: 8px;
+            padding: 12px 20px;
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #198754;
+            min-width: 120px;
+            text-align: center;
+        }
+        .code-block {
+            background: #212529;
+            color: #f8f9fa;
+            border-radius: 8px;
+            padding: 16px;
+            font-family: monospace;
+            font-size: 0.9rem;
+            white-space: pre;
+        }
+        .alínea-card {
+            border: 1px solid #dee2e6;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 3px 3px 8px rgba(0,0,0,0.1);
+        }
+        .badge-alinea {
+            font-size: 1.1rem;
+            padding: 6px 14px;
+        }
+        .explicacao {
+            background: #e8f5e9;
+            border-left: 4px solid #198754;
+            padding: 10px 16px;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            color: #333;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <nav class="navbar navbar-expand-lg bg-body-tertiary">
+                    <div class="container-fluid">
+                        <a class="navbar-brand" href="#">App5</a>
+                        <div class="collapse navbar-collapse">
+                            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="Alpha.html">Arrays</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link active" aria-current="page" href="GrupoI.html">Grupo I – Funções JS</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="GrupoII.html">Grupo II – Arrays Teste</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+
+        <div class="row mt-3">
+            <div class="col-12">
+                <h2 class="mb-1">Grupo I – Funções JavaScript</h2>
+                <p class="text-muted">Clique em <strong>Executar</strong> em cada alínea para ver o valor de <code>X</code>.</p>
+                <hr />
+            </div>
+        </div>
+
+        <!-- ALÍNEA A -->
+        <div class="row">
+            <div class="col-12">
+                <div class="alínea-card">
+                    <div class="d-flex align-items-center gap-3 mb-3">
+                        <span class="badge bg-primary badge-alinea">a)</span>
+                        <h5 class="mb-0">split + filter + reduce</h5>
+                    </div>
+                    <div class="row align-items-center">
+                        <div class="col-lg-7">
+                            <div class="code-block">let str = "6,7,5,2";
+let x = str.split(",")
+    .filter(x => x % 2 != 0)
+    .reduce((ac, v) => {
+        return ac + parseInt(v);
+    }, 5);</div>
+                        </div>
+                        <div class="col-lg-5 mt-3 mt-lg-0">
+                            <div class="d-flex align-items-center gap-3">
+                                <button class="btn btn-success" onclick="executarA()">▶ Executar</button>
+                                <div>
+                                    <small class="text-muted d-block">X =</small>
+                                    <div class="resultado-box" id="resA">?</div>
+                                </div>
+                            </div>
+                            <div class="explicacao mt-3" id="expA" style="display:none"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ALÍNEA B -->
+        <div class="row">
+            <div class="col-12">
+                <div class="alínea-card">
+                    <div class="d-flex align-items-center gap-3 mb-3">
+                        <span class="badge bg-primary badge-alinea">b)</span>
+                        <h5 class="mb-0">arguments + map + reduce</h5>
+                    </div>
+                    <div class="row align-items-center">
+                        <div class="col-lg-7">
+                            <div class="code-block">function charlie() {
+    a = Array.from(arguments)
+        .map(x => x ** 2)
+        .reduce((ac, a) => ac + a, 10);
+    return a;
+}
+x = charlie(1, 2, 3);</div>
+                        </div>
+                        <div class="col-lg-5 mt-3 mt-lg-0">
+                            <div class="d-flex align-items-center gap-3">
+                                <button class="btn btn-success" onclick="executarB()">▶ Executar</button>
+                                <div>
+                                    <small class="text-muted d-block">X =</small>
+                                    <div class="resultado-box" id="resB">?</div>
+                                </div>
+                            </div>
+                            <div class="explicacao mt-3" id="expB" style="display:none"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ALÍNEA C -->
+        <div class="row">
+            <div class="col-12">
+                <div class="alínea-card">
+                    <div class="d-flex align-items-center gap-3 mb-3">
+                        <span class="badge bg-primary badge-alinea">c)</span>
+                        <h5 class="mb-0">Promise + async/await + then/catch</h5>
+                    </div>
+                    <div class="row align-items-center">
+                        <div class="col-lg-7">
+                            <div class="code-block">function eco(a) {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            if (a % 2 !== 0) resolve(a);
+            else reject(a);
+        }, 1000);
+    });
+}
+var x;
+async function delta(t) {
+    x = await eco(t)
+        .then((z) => z * 3)
+        .catch((z) => z ** 2);
+    console.log(x);
+}
+delta(3);</div>
+                        </div>
+                        <div class="col-lg-5 mt-3 mt-lg-0">
+                            <div class="d-flex align-items-center gap-3">
+                                <button class="btn btn-success" onclick="executarC()">▶ Executar</button>
+                                <div>
+                                    <small class="text-muted d-block">X =</small>
+                                    <div class="resultado-box" id="resC">?</div>
+                                </div>
+                            </div>
+                            <div class="explicacao mt-3" id="expC" style="display:none"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ALÍNEA D -->
+        <div class="row">
+            <div class="col-12">
+                <div class="alínea-card">
+                    <div class="d-flex align-items-center gap-3 mb-3">
+                        <span class="badge bg-primary badge-alinea">d)</span>
+                        <h5 class="mb-0">Recursividade</h5>
+                    </div>
+                    <div class="row align-items-center">
+                        <div class="col-lg-7">
+                            <div class="code-block">function alfa(a, b) {
+    if (b === 1) return 1;
+    return a * alfa(a, b - 1);
+}
+let x = alfa(4, 3);
+console.log(x);</div>
+                        </div>
+                        <div class="col-lg-5 mt-3 mt-lg-0">
+                            <div class="d-flex align-items-center gap-3">
+                                <button class="btn btn-success" onclick="executarD()">▶ Executar</button>
+                                <div>
+                                    <small class="text-muted d-block">X =</small>
+                                    <div class="resultado-box" id="resD">?</div>
+                                </div>
+                            </div>
+                            <div class="explicacao mt-3" id="expD" style="display:none"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Executar Todos -->
+        <div class="row mb-4">
+            <div class="col-12 text-center">
+                <button class="btn btn-dark btn-lg" onclick="executarTodos()">▶▶ Executar Todos</button>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="bootstrap-5.3.8-dist/js/bootstrap.bundle.js"></script>
+    <script>
+        // ---- ALÍNEA A ----
+        function executarA() {
+            let str = "6,7,5,2";
+            let x = str.split(",")
+                .filter(x => x % 2 != 0)
+                .reduce((ac, v) => { return ac + parseInt(v); }, 5);
+
+            document.getElementById("resA").textContent = x;
+            document.getElementById("expA").style.display = "block";
+            document.getElementById("expA").innerHTML =
+                `<b>Passo a passo:</b><br>
+                split(",") → ["6","7","5","2"]<br>
+                filter (ímpares) → ["7","5"]<br>
+                reduce (início=5): 5 + 7 + 5 = <b>${x}</b>`;
+        }
+
+        // ---- ALÍNEA B ----
+        function executarB() {
+            function charlie() {
+                let a = Array.from(arguments)
+                    .map(x => x ** 2)
+                    .reduce((ac, a) => ac + a, 10);
+                return a;
+            }
+            let x = charlie(1, 2, 3);
+
+            document.getElementById("resB").textContent = x;
+            document.getElementById("expB").style.display = "block";
+            document.getElementById("expB").innerHTML =
+                `<b>Passo a passo:</b><br>
+                arguments → [1, 2, 3]<br>
+                map(x²) → [1, 4, 9]<br>
+                reduce (início=10): 10 + 1 + 4 + 9 = <b>${x}</b>`;
+        }
+
+        // ---- ALÍNEA C ----
+        function executarC() {
+            document.getElementById("resC").textContent = "...";
+
+            function eco(a) {
+                return new Promise((resolve, reject) => {
+                    setTimeout(() => {
+                        if (a % 2 !== 0) resolve(a);
+                        else reject(a);
+                    }, 1000);
+                });
+            }
+
+            var x;
+            async function delta(t) {
+                x = await eco(t)
+                    .then((z) => z * 3)
+                    .catch((z) => z ** 2);
+
+                document.getElementById("resC").textContent = x;
+                document.getElementById("expC").style.display = "block";
+                document.getElementById("expC").innerHTML =
+                    `<b>Passo a passo:</b><br>
+                    delta(3) → eco(3)<br>
+                    3 % 2 !== 0 → resolve(3)<br>
+                    .then(z => z*3): 3 × 3 = <b>${x}</b><br>
+                    <i>(se fosse par, usaria .catch → z²)</i>`;
+            }
+            delta(3);
+        }
+
+        // ---- ALÍNEA D ----
+        function executarD() {
+            function alfaFn(a, b) {
+                if (b === 1) return 1;
+                return a * alfaFn(a, b - 1);
+            }
+            let x = alfaFn(4, 3);
+
+            document.getElementById("resD").textContent = x;
+            document.getElementById("expD").style.display = "block";
+            document.getElementById("expD").innerHTML =
+                `<b>Passo a passo (recursão):</b><br>
+                alfa(4,3) = 4 × alfa(4,2)<br>
+                alfa(4,2) = 4 × alfa(4,1)<br>
+                alfa(4,1) = 1 (caso base)<br>
+                → 4 × 1 = 4 → 4 × 4 = <b>${x}</b>`;
+        }
+
+        function executarTodos() {
+            executarA();
+            executarB();
+            executarC();
+            executarD();
+        }
+    </script>
+</body>
+
+</html>
