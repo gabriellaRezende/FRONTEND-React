@@ -1,0 +1,26 @@
+.list {
+  display: grid;
+  gap: 14px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.emptyState {
+  padding: 54px 26px;
+  border: 1px dashed var(--border);
+  border-radius: 24px;
+  background: var(--surface);
+  text-align: center;
+}
+
+.emptyState h3 {
+  margin: 0 0 10px;
+}
+
+.emptyState p {
+  margin: 0;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+

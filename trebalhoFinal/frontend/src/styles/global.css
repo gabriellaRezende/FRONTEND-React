@@ -1,0 +1,81 @@
+:root {
+  color-scheme: light;
+  --bg: #f4f7fb;
+  --surface: rgba(255, 255, 255, 0.82);
+  --panel: rgba(255, 255, 255, 0.72);
+  --border: rgba(15, 23, 42, 0.08);
+  --text-main: #102033;
+  --text-muted: #607089;
+  --accent: #0f8b8d;
+  --accent-strong: #136f72;
+  --accent-soft: rgba(15, 139, 141, 0.22);
+  --success: #16803c;
+  --danger: #c62828;
+  --chip-bg: rgba(15, 139, 141, 0.08);
+  --badge-bg: rgba(15, 139, 141, 0.12);
+  --input-bg: rgba(255, 255, 255, 0.84);
+  --shadow: 0 28px 70px rgba(15, 23, 42, 0.12);
+}
+
+:root[data-theme='dark'] {
+  color-scheme: dark;
+  --bg: #07111e;
+  --surface: rgba(10, 22, 39, 0.84);
+  --panel: rgba(7, 17, 30, 0.84);
+  --border: rgba(148, 163, 184, 0.12);
+  --text-main: #eef4ff;
+  --text-muted: #93a4bc;
+  --accent: #22c1c3;
+  --accent-strong: #0fb3b1;
+  --accent-soft: rgba(34, 193, 195, 0.18);
+  --success: #5ade80;
+  --danger: #f87171;
+  --chip-bg: rgba(34, 193, 195, 0.12);
+  --badge-bg: rgba(34, 193, 195, 0.18);
+  --input-bg: rgba(9, 20, 35, 0.92);
+  --shadow: 0 28px 80px rgba(2, 6, 23, 0.45);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at top left, var(--accent-soft), transparent 30%),
+    radial-gradient(circle at top right, rgba(34, 197, 94, 0.12), transparent 25%),
+    var(--bg);
+  color: var(--text-main);
+  font-family: 'Avenir Next', 'Segoe UI Variable', 'Trebuchet MS', sans-serif;
+  transition: background 200ms ease, color 200ms ease;
+}
+
+img {
+  max-width: 100%;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:disabled,
+input:disabled {
+  cursor: not-allowed;
+  opacity: 0.65;
+}
+
+#root {
+  min-height: 100vh;
+}
+

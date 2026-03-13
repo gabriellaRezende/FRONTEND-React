@@ -1,0 +1,129 @@
+.page {
+  min-height: 100vh;
+  padding: 48px 18px 72px;
+}
+
+.panel {
+  width: min(1120px, 100%);
+  margin: 0 auto;
+  padding: clamp(22px, 3vw, 36px);
+  display: grid;
+  gap: 24px;
+  border: 1px solid var(--border);
+  border-radius: 32px;
+  background: var(--panel);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(18px);
+}
+
+.hero {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  align-items: flex-start;
+}
+
+.eyebrow {
+  display: inline-flex;
+  margin-bottom: 12px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: var(--chip-bg);
+  color: var(--accent-strong);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.title {
+  margin: 0;
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  line-height: 1.05;
+  max-width: 12ch;
+}
+
+.subtitle {
+  width: min(60ch, 100%);
+  margin: 14px 0 0;
+  color: var(--text-muted);
+  font-size: 1.02rem;
+  line-height: 1.7;
+}
+
+.heroActions {
+  display: grid;
+  gap: 14px;
+  justify-items: end;
+}
+
+.themeBadge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 0 16px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 340px 1fr;
+  gap: 20px;
+}
+
+.column {
+  display: grid;
+  gap: 20px;
+  align-content: start;
+}
+
+.feedback {
+  padding: 14px 18px;
+  border: 1px solid transparent;
+  border-radius: 18px;
+  font-weight: 600;
+}
+
+.feedbackSuccess {
+  background: rgba(22, 128, 60, 0.12);
+  border-color: rgba(22, 128, 60, 0.18);
+  color: var(--success);
+}
+
+.feedbackError {
+  background: rgba(198, 40, 40, 0.12);
+  border-color: rgba(198, 40, 40, 0.18);
+  color: var(--danger);
+}
+
+.loader {
+  min-height: 220px;
+  display: grid;
+  place-items: center;
+  padding: 30px;
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  background: var(--surface);
+  color: var(--text-muted);
+  text-align: center;
+}
+
+@media (max-width: 940px) {
+  .hero {
+    flex-direction: column;
+  }
+
+  .heroActions {
+    justify-items: start;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+
