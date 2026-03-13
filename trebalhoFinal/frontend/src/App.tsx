@@ -20,6 +20,7 @@ function AppContent() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [feedback, setFeedback] = useState<Feedback | null>(null);
 
+  //Uso o useEffect para carregar as tarefas iniciais da API. 
   useEffect(() => {
     let isMounted = true;
 
@@ -52,6 +53,7 @@ function AppContent() {
     };
   }, []);
 
+  //O useMemo é utilizado na aplicação para 
   // As estatisticas sao derivadas do reducer e memoizadas para evitar recalculos repetidos.
   const stats = useMemo<TaskStatsData>(() => {
     const completed = tasks.filter((task) => task.completed).length;
@@ -173,10 +175,9 @@ function AppContent() {
         <header className={styles.hero}>
           <div>
             <span className={styles.eyebrow}>React + Node.js + Express</span>
-            <h1 className={styles.title}>Task Manager para demonstracao de hooks</h1>
+            <h1 className={styles.title}>Task Manager Pessoal</h1>
             <p className={styles.subtitle}>
-              Interface simples para apresentar useState, useEffect, useMemo, useReducer, useContext e
-              useRef.
+              Uma aplicação simples para gerenciar suas tarefas do dia-a-dia.
             </p>
           </div>
 
@@ -189,7 +190,7 @@ function AppContent() {
         <TaskStats stats={stats} disabled={loading || isSubmitting} onClearCompleted={handleClearCompleted} />
 
         <div className={styles.grid}>
-          <section className={styles.column}>
+          <section className={`${styles.column} ${styles.sidebarColumn}`}>
             <TaskForm onAddTask={handleAddTask} disabled={loading || isSubmitting} />
             <FilterBar
               filter={filter}
@@ -200,7 +201,7 @@ function AppContent() {
             />
           </section>
 
-          <section className={styles.column}>
+          <section className={`${styles.column} ${styles.contentColumn}`}>
             {feedback ? (
               <div
                 className={`${styles.feedback} ${feedback.type === 'error' ? styles.feedbackError : styles.feedbackSuccess}`}
@@ -233,4 +234,3 @@ export default function App() {
     </ThemeProvider>
   );
 }
-

@@ -72,14 +72,24 @@
 
 .grid {
   display: grid;
-  grid-template-columns: 340px 1fr;
-  gap: 20px;
+  grid-template-columns: minmax(300px, 360px) minmax(0, 1fr);
+  gap: clamp(28px, 4vw, 48px);
+  align-items: start;
 }
 
 .column {
   display: grid;
   gap: 20px;
   align-content: start;
+}
+
+.sidebarColumn {
+  position: sticky;
+  top: 24px;
+}
+
+.contentColumn {
+  padding-left: 6px;
 }
 
 .feedback {
@@ -125,5 +135,12 @@
   .grid {
     grid-template-columns: 1fr;
   }
-}
 
+  .sidebarColumn {
+    position: static;
+  }
+
+  .contentColumn {
+    padding-left: 0;
+  }
+}
