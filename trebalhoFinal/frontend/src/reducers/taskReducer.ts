@@ -7,8 +7,9 @@ export type TaskAction =
   | { type: 'TOGGLE_TASK'; payload: Task }
   | { type: 'CLEAR_COMPLETED' };
 
-// O reducer concentra as transicoes principais para facilitar a explicacao em aula.
+// O reducer concentra as transicoes principais de estado da aplicação
 export function taskReducer(state: Task[], action: TaskAction): Task[] {
+ //aqui 
   switch (action.type) {
     case 'SET_TASKS':
       return action.payload;
